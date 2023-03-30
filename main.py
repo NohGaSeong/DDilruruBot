@@ -42,9 +42,8 @@ async def s3(ctx, *, text):
 
 @bot.command()
 async def ec2(ctx, *, text):
+    ec2 = boto3.resource('ec2', region_name = "ap-northeast-2")
     if text == "생성" : 
-        ec2 = boto3.resource('ec2')
-
         instances = ec2.create_instances(
             ImageId = "ami-03221589fd7c8f183",
             MinCount=1,
@@ -54,6 +53,26 @@ async def ec2(ctx, *, text):
         )
         
         await ctx.send("생성됐으니까 계정에 가서 확인해줘")
+
+    if text == "리스트":
+        reservations = ec2.describe_instance(Filters=[
+            {
+                "Name" : "instance-state-name",
+                "Values" : ["running"],
+            }
+        ]).get("Reservations")
+
+        for reservation in reservations:
+            for instance in reservation["instances"]:
+                instance_id = instance["instanceId"]
+                instance_type = instance["InstanceType"]
+                public_ip = instance["PublicIpAddress"]
+                private_ip = instance["PrivateIpAddress"]
+        await ctx.send(f"{instance_id}, {instance_type}, {public_ip}, {private_ip}")
+
+    if text[:2] == "종료":
+        response = ec2.terminate_instances(instanceIds=[text[3:]])
+        await ctx.send(response + "잘 종료됐으니까 확인해봐.")
 
 @bot.command()
 async def 키페어(ctx, *,text):
