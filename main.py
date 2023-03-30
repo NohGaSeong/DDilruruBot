@@ -56,6 +56,19 @@ async def ec2(ctx, *, text):
         await ctx.send("생성됐으니까 계정에 가서 확인해줘")
 
 @bot.command()
+async def 키페어(ctx, *,text):
+    if text[:2] == "생성":
+        ec2 = boto3.resource('ec2')
+        new_keypair = ec2.create_key_pair(KeyName=text[3:])
+        print(new_keypair)
+        await ctx.send(str(new_keypair.key_material))
+
+    if text[:2] == "삭제":
+        ec2 = boto3.client('ec2')
+        delete_keypair = ec2.delete_key_pair(KeyName=text[3:])
+        print(delete_keypair)
+
+@bot.command()
 async def 따라하기(ctx, *, text):
     await ctx.send(text)
 
