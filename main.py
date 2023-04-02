@@ -13,6 +13,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
+# S3 파트
 @bot.command()
 async def s3(ctx, *, text):
     if text == "보여줘":
@@ -40,6 +41,7 @@ async def s3(ctx, *, text):
     #     )
     #     await ctx.send("아래 주소에서 다운 받아줘! 30초후면 닫히니까 빨리!\n" + url)
 
+# ec2 파트
 @bot.command()
 async def ec2(ctx, *, text):
     ec2 = boto3.resource('ec2', region_name = "ap-northeast-2")
