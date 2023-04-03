@@ -38,4 +38,4 @@ jobs:
         run : python test.py
       
       - name: Start Python-main.py
-        run : python ./discord-bot/main.py
+        run : python ./discord-bot/main.py test
