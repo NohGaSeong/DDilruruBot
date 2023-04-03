@@ -3,8 +3,12 @@ from discord.ext import commands
 from to import Token
 import boto3
 import datetime
+from dotenv import load_dotenv
+import os
 
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
+load_dotenv()
+Token = os.environ.get('Token')
 
 @bot.event
 async def on_ready():
