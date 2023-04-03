@@ -30,19 +30,6 @@ async def s3(ctx, *, text):
     else :
         await ctx.send("말을 끝까지해줘")
 
-    # if text == "다운로드":
-    #     s3 = boto3.client('s3')
-    #     url = s3.generate_presigned_url(
-    #         ClientMethod='get_object',
-    #         Params={
-    #             # 버킷이름
-    #             'Bucket' : 'gaseong-bucket',
-    #             # 파일 이름
-    #             'Key' : "gaseong.jpg",
-    #         },
-    #         ExpiresIn=datetime.timedelta(seconds=30)
-    #     )
-    #     await ctx.send("아래 주소에서 다운 받아줘! 30초후면 닫히니까 빨리!\n" + url)
 
 # ec2 파트
 @bot.command()
