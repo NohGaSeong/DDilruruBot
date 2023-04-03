@@ -8,6 +8,8 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 load_dotenv()
 Token = os.getenv('Token')
 
+bot.run(Token)
+
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -82,7 +84,3 @@ async def 키페어(ctx, *,text):
 @bot.command()
 async def 따라하기(ctx, *, text):
     await ctx.send(text)
-
-
-
-bot.run(Token)
