@@ -21,7 +21,7 @@ jobs:
           touch .env
           echo "${{ secrets.PYTHON_DISCORD_TOKEN }}" >> .env
           cat .env
-          echo "success create .env"
+          echo "success create .env : ${{ secrets.PYTHON_DISCORD_TOKEN }}"
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
