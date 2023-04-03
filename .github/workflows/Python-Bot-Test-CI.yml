@@ -33,5 +33,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruff pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Start python
+          
+      - name: Start test.py
         run : python test.py
+      
+      - name: Start Python-main.py
+        run : python ./discord-bot/main.py
