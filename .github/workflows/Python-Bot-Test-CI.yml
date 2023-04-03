@@ -16,7 +16,6 @@ jobs:
         python-version: ["3.10", "3.11"]
     steps:
       - name: Create .env
-        shell: bash
         run: |
           touch .env
           echo "${{ secrets.PYTHON_DISCORD_TOKEN }}" >> .env
