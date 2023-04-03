@@ -33,4 +33,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Run Python
-        run: python gsm-awsbot/python-bot/main.py
+        run: python -m main.py
