@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ "*" ]
 
+env:
+  DEVOPS_DIR: python-bot
   
 jobs:
   build:
@@ -33,4 +35,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Run Python
-        run: python main.py
+        run: python ${{ env.DEVOPS_DIR }}/main.py
+        shell: sh
