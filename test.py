@@ -11,4 +11,7 @@ def test():
     if Token is not None:
         return True
     else :
+        raise
         return False
+
+print(test())
