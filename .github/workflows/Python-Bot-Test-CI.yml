@@ -34,4 +34,6 @@ jobs:
           
       - name: Run Python
         shell: sh
-        run: python python-bot/main.py
+        run: |
+          cd ..
+          python main.py
