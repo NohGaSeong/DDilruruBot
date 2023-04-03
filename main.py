@@ -1,8 +1,6 @@
 import discord
 from discord.ext import commands
-from to import Token
 import boto3
-import datetime
 from dotenv import load_dotenv
 import os
 
