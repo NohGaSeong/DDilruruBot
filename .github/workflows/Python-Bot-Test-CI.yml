@@ -15,6 +15,7 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11"]
     steps:
+      - uses: actions/checkout@v2
       - name: Create .env
         run: |
           touch .env
@@ -32,7 +33,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruff pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
+      
       - name: Start main.py
         run: |
           python main.py
