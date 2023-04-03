@@ -19,7 +19,7 @@ jobs:
         shell: bash
         run: |
           touch .env
-          echo ${{ secrets.PYTHON_DISCORD_TOKEN }} >> .env
+          echo "${{ secrets.PYTHON_DISCORD_TOKEN }}" >> .env
           cat .env
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
