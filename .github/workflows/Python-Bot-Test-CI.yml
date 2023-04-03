@@ -16,11 +16,9 @@ jobs:
     steps:
       - name: Create .env
         shell: bash
-        env:
-          ENV_API_KEY: ${{ secrets.PYTHON_DISCORD_TOKEN }}
         run: |
           touch .env
-          echo Token="$ENV_API_KEY" >> .env
+          echo ${{ secrets.PYTHON_DISCORD_TOKEN }} >> .env
           cat .env
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}

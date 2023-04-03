@@ -6,7 +6,7 @@ import os
 
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 load_dotenv()
-Token = os.environ.get('Token')
+Token = os.getenv('Token')
 
 @bot.event
 async def on_ready():
@@ -14,6 +14,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    print(Token)
 
 # S3 파트
 @bot.command()
@@ -94,8 +95,6 @@ async def 키페어(ctx, *,text):
 @bot.command()
 async def 따라하기(ctx, *, text):
     await ctx.send(text)
-
-
 
 
 
