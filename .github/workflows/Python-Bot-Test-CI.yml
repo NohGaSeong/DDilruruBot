@@ -14,6 +14,14 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11"]
     steps:
+      - name: Create .env
+        shell: bash
+        env:
+          ENV_API_KEY: ${{ secrets.PYTHON_DISCORD_TOKEN }}
+        run: |
+          touch to.py
+          echo API_KEY="$ENV_API_KEY" >> to.py
+          cat to.py
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
