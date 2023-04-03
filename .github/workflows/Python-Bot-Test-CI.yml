@@ -19,9 +19,9 @@ jobs:
         env:
           ENV_API_KEY: ${{ secrets.PYTHON_DISCORD_TOKEN }}
         run: |
-          touch to.py
-          echo API_KEY="$ENV_API_KEY" >> to.py
-          cat to.py
+          touch .env
+          echo API_KEY="$ENV_API_KEY" >> .env
+          cat .env
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
