@@ -17,8 +17,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     print(Token)
-    if len(sys.args) == 2:
-        sys.exit()
+    
 
 # S3 파트
 @bot.command()
