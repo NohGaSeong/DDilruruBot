@@ -3,6 +3,7 @@ from discord.ext import commands
 import boto3
 from dotenv import load_dotenv
 import os
+import sys
 
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 load_dotenv()
@@ -16,6 +17,8 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     print(Token)
+    if len(sys.args) == 2:
+        sys.exit()
 
 # S3 파트
 @bot.command()
