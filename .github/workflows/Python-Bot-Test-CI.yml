@@ -42,7 +42,7 @@ jobs:
         if: ${{ success() }}
         with:
           title: ✅ 띨르르 파이썬 테스트 성공 ✅
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          webhook: ${{ secrets.WEBHOOK }}
           color: 00FF00
 
       - name: 띨르르 파이썬 테스트 Discord Notification
@@ -50,5 +50,5 @@ jobs:
         if: ${{ failure() }}
         with:
           title: ❗️ 띨르르 파이썬 테스트 실패 ❗️
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          webhook: ${{ secrets.WEBHOOK }}
           color: FF0000
