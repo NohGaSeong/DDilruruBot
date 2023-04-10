@@ -22,4 +22,9 @@ async def on_ready():
     print('------')
     
 if __name__ == "__main__":
+    import sys
+
+    if sys.len(sys.args) > 1:
+        token = sys.args[1]
+    
     bot.run(token)
