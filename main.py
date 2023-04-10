@@ -24,6 +24,7 @@ async def on_ready():
 if __name__ == "__main__":
     import sys
 
+    print(sys.argv)
     if len(sys.argv) > 1:
 
         token = sys.argv[-1]
