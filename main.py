@@ -6,8 +6,9 @@ import discord
 import os
 
 
-bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 load_dotenv()
+
+bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 token = os.getenv("TOKEN")
 
 
@@ -20,5 +21,5 @@ async def on_ready():
     print(f"bot token : {token}")
     print('------')
     
-
-bot.run(token)
+if __name__ == "__main__":
+    bot.run(token)
