@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from commands.s3 import S3
 from commands.ec2 import EC2
 import discord
+import sys
 import os
 
 
@@ -14,6 +15,10 @@ token = os.getenv("TOKEN")
 
 @bot.event
 async def on_ready():
+
+    if len(sys.argv) > 1:
+        sys.exit()
+        
     await bot.add_cog(S3(bot))
     await bot.add_cog(EC2(bot))
     print(f"bot name : {bot.user.name}")
@@ -22,17 +27,8 @@ async def on_ready():
     print('------')
     
 if __name__ == "__main__":
-    import sys
-
-    print(sys.argv)
     if len(sys.argv) > 1:
-
         token = sys.argv[-1]
-        try:
-            bot.run(token)
-        except Exception as e:
-            raise e
-        finally:
-            sys.exit()
+        bot.run(token)
     else:
         bot.run(token)
