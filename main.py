@@ -24,9 +24,9 @@ async def on_ready():
 if __name__ == "__main__":
     import sys
 
-    if len(sys.args) > 1:
+    if len(sys.argv) > 1:
 
-        token = sys.args[-1]
+        token = sys.argv[-1]
         try:
             bot.run(token)
         except Exception as e:
