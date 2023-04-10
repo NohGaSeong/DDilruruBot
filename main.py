@@ -17,8 +17,9 @@ token = os.getenv("TOKEN")
 async def on_ready():
 
     if len(sys.argv) > 1:
+        print("봇 실행 성공")
         sys.exit()
-        
+
     await bot.add_cog(S3(bot))
     await bot.add_cog(EC2(bot))
     print(f"bot name : {bot.user.name}")
