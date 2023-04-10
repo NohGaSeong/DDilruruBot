@@ -15,27 +15,31 @@ jobs:
     steps:
     - name: Checkout the code
       uses: actions/checkout@v2
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
+
     - name: Install dependencies
       run: pip install -r requirements.txt
+
     - name: Run Python Script with Secret
       run: python main.py ${{ secrets.PYTHON_DISCORD_TOKEN }}
-    - name: 띨르르 파이썬 테스트 Discord Notification
-        uses: sarisia/actions-status-discord@v1
-        if: ${{ success() }}
-        with:
-          title: ✅ 띨르르 파이썬 테스트 성공 ✅
-          webhook: ${{ secrets.WEBHOOK }}
-          color: 00FF00
 
-      - name: 띨르르 파이썬 테스트 Discord Notification
-        uses: sarisia/actions-status-discord@v1
-        if: ${{ failure() }}
-        with:
-          title: ❗️ 띨르르 파이썬 테스트 실패 ❗️
-          webhook: ${{ secrets.WEBHOOK }}
-          color: FF0000
-          
+    - name: 띨르르 파이썬 테스트 Discord Notification
+      uses: sarisia/actions-status-discord@v1
+      if: ${{ success() }}
+      with:
+        title: ✅ 띨르르 파이썬 테스트 성공 ✅
+        webhook: ${{ secrets.WEBHOOK }}
+        color: 00FF00
+
+    - name: 띨르르 파이썬 테스트 Discord Notification
+      uses: sarisia/actions-status-discord@v1
+      if: ${{ failure() }}
+      with:
+        title: ❗️ 띨르르 파이썬 테스트 실패 ❗️
+        webhook: ${{ secrets.WEBHOOK }}
+        color: FF0000
+        
